@@ -17,12 +17,12 @@ model Chat {
 }
 
 model Message {
-  chat      Chat?     @relation(fields: [chatId], references: [id])
-  chatId    String?
   content   String?
   createdAt DateTime  @default(now())
   dateSent  DateTime?
   id        String    @id @default(cuid())
   updatedAt DateTime  @updatedAt
   userName  String?
+  chat      Chat?     @relation(fields: [chatId], references: [id])
+  chatId    String?
 }

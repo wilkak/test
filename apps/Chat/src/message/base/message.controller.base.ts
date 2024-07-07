@@ -41,18 +41,18 @@ export class MessageControllerBase {
           : undefined,
       },
       select: {
-        chat: {
-          select: {
-            id: true,
-          },
-        },
-
         content: true,
         createdAt: true,
         dateSent: true,
         id: true,
         updatedAt: true,
         userName: true,
+
+        chat: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -65,18 +65,18 @@ export class MessageControllerBase {
     return this.service.messages({
       ...args,
       select: {
-        chat: {
-          select: {
-            id: true,
-          },
-        },
-
         content: true,
         createdAt: true,
         dateSent: true,
         id: true,
         updatedAt: true,
         userName: true,
+
+        chat: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
   }
@@ -90,18 +90,18 @@ export class MessageControllerBase {
     const result = await this.service.message({
       where: params,
       select: {
-        chat: {
-          select: {
-            id: true,
-          },
-        },
-
         content: true,
         createdAt: true,
         dateSent: true,
         id: true,
         updatedAt: true,
         userName: true,
+
+        chat: {
+          select: {
+            id: true,
+          },
+        },
       },
     });
     if (result === null) {
@@ -132,18 +132,18 @@ export class MessageControllerBase {
             : undefined,
         },
         select: {
-          chat: {
-            select: {
-              id: true,
-            },
-          },
-
           content: true,
           createdAt: true,
           dateSent: true,
           id: true,
           updatedAt: true,
           userName: true,
+
+          chat: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {
@@ -166,18 +166,18 @@ export class MessageControllerBase {
       return await this.service.deleteMessage({
         where: params,
         select: {
-          chat: {
-            select: {
-              id: true,
-            },
-          },
-
           content: true,
           createdAt: true,
           dateSent: true,
           id: true,
           updatedAt: true,
           userName: true,
+
+          chat: {
+            select: {
+              id: true,
+            },
+          },
         },
       });
     } catch (error) {

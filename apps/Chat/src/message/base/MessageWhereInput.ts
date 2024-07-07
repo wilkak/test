@@ -11,27 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ChatWhereUniqueInput } from "../../chat/base/ChatWhereUniqueInput";
-import { ValidateNested, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested } from "class-validator";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { ChatWhereUniqueInput } from "../../chat/base/ChatWhereUniqueInput";
 
 @InputType()
 class MessageWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => ChatWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ChatWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ChatWhereUniqueInput, {
-    nullable: true,
-  })
-  chat?: ChatWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -75,6 +63,18 @@ class MessageWhereInput {
     nullable: true,
   })
   userName?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => ChatWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ChatWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ChatWhereUniqueInput, {
+    nullable: true,
+  })
+  chat?: ChatWhereUniqueInput;
 }
 
 export { MessageWhereInput as MessageWhereInput };

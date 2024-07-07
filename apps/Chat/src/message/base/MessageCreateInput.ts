@@ -11,30 +11,18 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { ChatWhereUniqueInput } from "../../chat/base/ChatWhereUniqueInput";
 import {
-  ValidateNested,
-  IsOptional,
   IsString,
   MaxLength,
+  IsOptional,
   IsDate,
+  ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
+import { ChatWhereUniqueInput } from "../../chat/base/ChatWhereUniqueInput";
 
 @InputType()
 class MessageCreateInput {
-  @ApiProperty({
-    required: false,
-    type: () => ChatWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => ChatWhereUniqueInput)
-  @IsOptional()
-  @Field(() => ChatWhereUniqueInput, {
-    nullable: true,
-  })
-  chat?: ChatWhereUniqueInput | null;
-
   @ApiProperty({
     required: false,
     type: String,
@@ -69,6 +57,18 @@ class MessageCreateInput {
     nullable: true,
   })
   userName?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => ChatWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ChatWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ChatWhereUniqueInput, {
+    nullable: true,
+  })
+  chat?: ChatWhereUniqueInput | null;
 }
 
 export { MessageCreateInput as MessageCreateInput };

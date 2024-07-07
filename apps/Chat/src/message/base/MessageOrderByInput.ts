@@ -28,17 +28,6 @@ class MessageOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  chatId?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
   content?: SortOrder;
 
   @ApiProperty({
@@ -95,6 +84,17 @@ class MessageOrderByInput {
     nullable: true,
   })
   userName?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  chatId?: SortOrder;
 }
 
 export { MessageOrderByInput as MessageOrderByInput };
